@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Chroma vector DB
+chroma_db/
+
+# HuggingFace model cache
+.cache/
+hf_home/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Alembic
+alembic/versions/*.pyc

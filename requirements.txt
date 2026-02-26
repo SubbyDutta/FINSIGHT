@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+python-dotenv
+requests
+yfinance
+alembic
+pydantic>=2,<3
+pydantic-settings>=2,<3
