@@ -15,7 +15,7 @@ def add_article_embedding(article_id: int, text: str):
     embedding =embed_text(text)
 
     collection.add(
-        id=[str(article_id)],
+        ids=[str(article_id)],
         documents=[text],
         embeddings=[embedding]
     )
