@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from app.db.base import Base
@@ -15,12 +15,14 @@ class ArticleSentiment(Base):
         nullable=False
     )
 
-    label = Column(String(20))   # positive / negative / neutral
+    label = Column(String(20))  
     score = Column(Float)
 
     processed_at = Column(
         DateTime(timezone=True),
         server_default=func.now()
     )
-
+    __table_args__ = (
+        UniqueConstraint("article_id", name="idx_sentiment_article_id"),
+    )
     article = relationship("NewsArticle")

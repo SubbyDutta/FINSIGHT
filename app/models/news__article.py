@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, Integer, String, Text, DateTime, UniqueConstraint
 from sqlalchemy.sql import func
 from app.db.base import Base
 
@@ -21,4 +21,8 @@ class NewsArticle(Base):
     created_at = Column(
         DateTime(timezone=True),
         server_default=func.now()
+    )
+    
+    __table_args__ = (
+        UniqueConstraint("ticker", "published_at", name="dx_news_ticker_published"),
     )

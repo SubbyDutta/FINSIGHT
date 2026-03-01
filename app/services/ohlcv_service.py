@@ -11,7 +11,7 @@ REQUIRED_OHLCV_COLUMNS = {"time", "open", "high", "low", "close", "volume"}
 
 def _normalize_ohlcv_columns(df: pd.DataFrame) -> pd.DataFrame:
     if isinstance(df.columns, pd.MultiIndex):
-        # yfinance may return a 2-level column index like ('Close', 'AAPL').
+      
         df.columns = df.columns.get_level_values(0)
 
     df = df.rename(
