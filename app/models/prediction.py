@@ -15,6 +15,6 @@ class Prediction(Base):
     forecast_day_4 = Column(DECIMAL(12, 4))
     forecast_day_5 = Column(DECIMAL(12, 4))
 
-    signal = Column(String(10))
+    signal = Column(String(100))
     confidence = Column(DECIMAL(5, 4))
     model_version = Column(String(50))

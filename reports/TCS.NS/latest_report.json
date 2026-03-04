@@ -1,0 +1,44 @@
+{
+  "ticker": "TCS.NS",
+  "generated_at": "2026-03-04T16:29:42.682221",
+  "summary": "TCS.NS is currently trading at INR 2587.8, down 0.93% today. The sentiment surrounding the stock is bullish with 3 articles analyzed. The 5-day prediction model indicates a BUY signal with high confidence (0.8598), forecasting prices to potentially reach above INR 2900. However, technical indicators suggest a HOLD signal, with an RSI of 30.63 and a MACD signal of -126.67, and the Bollinger Bands position is in the middle.",
+  "fundamentals": {
+    "current_price": 2587.8,
+    "change_percent": -0.93
+  },
+  "sentiment": {
+    "label": "Bullish",
+    "score": 0.333,
+    "article_count": 3
+  },
+  "prediction": {
+    "forecast_5d": [
+      2837.029296875,
+      2860.298828125,
+      2912.048828125,
+      2923.05126953125,
+      2864.1630859375
+    ],
+    "trend": "upward",
+    "confidence": 0.8598,
+    "model_version": "lstm_global_v1"
+  },
+  "technical": {
+    "rsi": 30.6335,
+    "macd_signal": "-126.674798",
+    "bb_position": "middle",
+    "overall_signal": "HOLD"
+  },
+  "news_highlights": [
+    "India\u2019s IT ecosystem must find its WITCH for the AI age",
+    "ET AI Conclave 2026; Apple's India payments play",
+    "Baculoviruses exploit the mitotic kinase CDK1 to disrupt the nuclear lamina"
+  ],
+  "risk_factors": [
+    "The RSI is in the oversold territory (30.63), which could indicate potential downward pressure or a short-term rebound.",
+    "The MACD signal is negative (-126.67), suggesting bearish momentum in the short term.",
+    "The Bollinger Bands are in the middle, indicating no strong trend at the moment."
+  ],
+  "recommendation": "BUY with the prediction model showing a strong bullish signal and high confidence, despite mixed technical indicators.",
+  "analyst_note": "While technical indicators suggest a HOLD, the strong bullish sentiment and the prediction model's BUY signal with high confidence indicate a potential upward trend for TCS.NS in the near future. Investors should monitor the stock closely for further confirmation of the bullish trend."
+}

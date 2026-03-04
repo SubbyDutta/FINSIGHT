@@ -1,6 +1,8 @@
-from sqlalchemy import text
+from sqlalchemy import desc, text
 from sqlalchemy.orm import Session
 from typing import List, Dict
+
+from app.models.stock_ohlcv import StockOHLCV
 
 
 def bulk_insert_ohlcv(session: Session, records: List[Dict]):
@@ -30,3 +32,12 @@ def bulk_insert_ohlcv(session: Session, records: List[Dict]):
 
     session.execute(insert_query, records)
     session.commit()
+
+def get_latest_indicators_row(db: Session, ticker: str):
+
+    return (
+        db.query(StockOHLCV)
+        .filter(StockOHLCV.ticker == ticker)
+        .order_by(desc(StockOHLCV.time))
+        .first()
+    )    

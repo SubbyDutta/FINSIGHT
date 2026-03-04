@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy.orm import Session
 
 from app.api.ai.indicators import add_technical_indicators
-from app.repositories.ohlcv_repository import bulk_insert_ohlcv
+from app.repositories.ohlcv_repository import bulk_insert_ohlcv, get_latest_indicators_row
 from app.services.stock_service import normalize_ticker
 
 REQUIRED_OHLCV_COLUMNS = {"time", "open", "high", "low", "close", "volume"}
@@ -66,3 +66,19 @@ def fetch_and_store_ohlcv(
     
 
 
+def get_latest_indicators(db: Session, ticker: str):
+
+    row = get_latest_indicators_row(db, ticker)
+
+    if not row:
+        return None
+
+    return {
+        "rsi": row.rsi,
+        "macd": row.macd,
+        "bb_upper": row.bb_upper,
+        "bb_lower": row.bb_lower,
+        "ma_7": row.ma_7,
+        "ma_21": row.ma_21,
+        "close": row.close
+    }

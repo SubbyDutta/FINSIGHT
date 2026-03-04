@@ -9,7 +9,7 @@ router = APIRouter()
 @router.post("/train/lstm")
 def train_lstm(db: Session = Depends(get_db)):
 
-    tickers = ["TCS", "WIPRO", "RELIANCE"]
+    tickers = ["TCS", "WIPRO", "RELIANCE","SBIN","BAJFINANCE"]
 
     result = train_global_lstm(db, tickers)
 

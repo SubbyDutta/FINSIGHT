@@ -40,6 +40,12 @@ Do not hallucinate facts outside the provided context.
 
     llm = get_llm()
 
-    answer = llm.generate(prompt)
+    response = llm.invoke(prompt)
+    answer = response.content if hasattr(response, "content") else str(response)
+    if isinstance(answer, list):
+        answer = "".join(
+            item.get("text", str(item)) if isinstance(item, dict) else str(item)
+            for item in answer
+        )
 
     return answer, documents

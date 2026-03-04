@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.db.deps import get_db
 from app.services.lstm_inference_service import predict_ticker
 
-
+ 
 router = APIRouter(prefix="/predict", tags=["prediction"])
 
 

@@ -29,10 +29,13 @@ def train_global_lstm(session, tickers):
     X_val_scaled,
     y_val_scaled,    
     model_save_path=MODEL_DIR,
-    epochs=30,
+    max_epochs=300,
+    patience=12,
+    min_delta=1e-4,
     batch_size=32,
-    lr=0.001,
-    device="cpu"
+    lr=0.002,
+    device="cpu",
+    session=session
 )
 
     print("Training completed.")

@@ -1,0 +1,45 @@
+FinSight-AI Training Stability Changes (Patience-based)
+Date: 2026-03-04
+
+1) Updated training loop to use patience-based early stopping
+- File: app/api/ai/lstm/trainer.py
+- Replaced fixed `epochs` argument with:
+  - `max_epochs=300` (safety cap)
+  - `patience=12`
+  - `min_delta=1e-4`
+- Early stop condition:
+  - If validation loss does not improve by at least `min_delta` for `patience` consecutive epochs, training stops.
+
+2) Fixed train loss / train RMSE calculation bug
+- File: app/api/ai/lstm/trainer.py
+- Root cause of `train_rmse = 0.0`:
+  - `train_rmse` was computed before any batch loss accumulation.
+- Fix:
+  - Accumulate batch loss first
+  - Average train loss over train loader
+  - Compute `train_rmse = sqrt(train_loss)` after averaging
+
+3) Added training stabilization features
+- File: app/api/ai/lstm/trainer.py
+- Added gradient clipping:
+  - `torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)`
+  - New arg: `max_grad_norm=1.0`
+- Added LR scheduler:
+  - `ReduceLROnPlateau` on validation loss
+  - Reduces LR when validation loss plateaus
+- Added LR to epoch logs for visibility.
+
+4) Kept metrics persistence intact
+- File: app/api/ai/lstm/trainer.py
+- `save_training_metric(...)` still runs every epoch with corrected `train_loss/train_rmse/val_loss/val_rmse`.
+
+5) Switched training service call to patience-based args
+- File: app/services/lstm_training_service.py
+- Updated call from fixed `epochs=50` to:
+  - `max_epochs=300`
+  - `patience=12`
+  - `min_delta=1e-4`
+
+Notes
+- This change implements only the "stabilize training + trustworthy model selection" item.
+- No changes were made to target definition, feature engineering, or validation strategy beyond early stopping behavior.
