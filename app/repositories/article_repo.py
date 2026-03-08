@@ -6,8 +6,11 @@ def save_articles(db:Session,ticker:str,articles: list):
     saved =[]
 
     for a in articles:
+        url = a.get("url")
+        if not url:
+            continue
 
-        exists =db.query(NewsArticle).filter(NewsArticle.url == a["url"]).first()
+        exists =db.query(NewsArticle).filter(NewsArticle.url == url).first()
 
         if exists:
             continue
@@ -15,7 +18,7 @@ def save_articles(db:Session,ticker:str,articles: list):
            ticker=ticker,
            title=a["title"],
            description=a.get("description"),
-           url=a["url"],
+           url=url,
            source=a["source"]["name"] if a.get("source") else None,
            published_at=a.get("publishedAt")
 
@@ -23,9 +26,9 @@ def save_articles(db:Session,ticker:str,articles: list):
 
         db.add(article)
         saved.append(article)
+    if saved:
         db.commit()
-
-        return saved
+    return saved
     
 def get_articles(db:Session,ticker: str):
     return(

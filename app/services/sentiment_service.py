@@ -4,7 +4,6 @@ from app.services.stock_service import normalize_ticker
 from sqlalchemy import func
 from app.models.article_sentiment import ArticleSentiment
 from app.models import NewsArticle
-from app.api.ai.vector_store import add_article_embedding
 
 
 def process_ticker_sentiment(db,ticker:str):
@@ -19,7 +18,6 @@ def process_ticker_sentiment(db,ticker:str):
             text += " " + article.description
         label,score = analyze_sentiment(text)
         save_sentiment(db,article.id,label,score)
-        add_article_embedding(article.id,text)
         processed +=1
     return processed
 

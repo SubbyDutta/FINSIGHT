@@ -1,0 +1,45 @@
+{
+  "ticker": "SBIN.NS",
+  "generated_at": "2026-03-08T17:47:02.601553",
+  "summary": "The stock price of SBIN.NS has decreased by 2.33%, with the current price at 1143. The aggregated sentiment for SBIN.NS is Bullish, with a score of 0.65 based on 20 articles. The LSTM model predicts a 5-day forecast with a BUY signal and a confidence of 0.8668. Technical analysis indicates a HOLD signal, with an RSI of 65.7011, MACD of 43.769020, and the BB position in the middle.",
+  "fundamentals": {
+    "current_price": 1143.0,
+    "change_percent": -2.33
+  },
+  "sentiment": {
+    "label": "Bullish",
+    "score": 0.65,
+    "article_count": 20
+  },
+  "prediction": {
+    "forecast_5d": [
+      1312.636474609375,
+      1231.30322265625,
+      1260.3719482421875,
+      1261.8338623046875,
+      1305.86083984375
+    ],
+    "trend": "downward",
+    "confidence": 0.8668,
+    "model_version": "lstm_global_v1"
+  },
+  "technical": {
+    "rsi": 65.7011,
+    "macd_signal": "43.769020",
+    "bb_position": "middle",
+    "overall_signal": "HOLD"
+  },
+  "news_highlights": [
+    "Shaun Thomas: Using Patroni to Build a Highly Available Postgres Cluster\u2014Part 1: etcd",
+    "binmod1d added to PyPI",
+    "jfmo added to PyPI",
+    "State Bank of India announces exit of Nitin Chugh as Deputy MD",
+    "Recovering old web pages"
+  ],
+  "risk_factors": [
+    "The stock price has seen a recent decrease of 2.33%.",
+    "Technical analysis suggests a HOLD signal, which may indicate a period of consolidation or uncertainty."
+  ],
+  "recommendation": "BUY as the LSTM model shows a strong BUY signal with high confidence, and the overall sentiment is Bullish, despite a recent price dip and a HOLD signal from technical indicators.",
+  "analyst_note": "While the recent stock price movement is negative and technical indicators suggest a HOLD, the strong bullish sentiment and the LSTM's confident BUY prediction indicate potential for upward movement. Investors may consider this a buying opportunity, but should monitor the stock closely for further developments."
+}

@@ -26,6 +26,8 @@ app.include_router(chat_router)
 app.include_router(research_router)
 
 app.include_router(test2_router)
+
+
 @app.get("/")
 def root():
     return {"message": "FinSight AI running"}

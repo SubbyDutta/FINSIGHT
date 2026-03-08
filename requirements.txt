@@ -11,3 +11,7 @@ pydantic>=2,<3
 pydantic-settings>=2,<3
 chromadb
 pandas-ta
+pypdf
+reportlab
+sentence-transformers
+langchain-google-genai
