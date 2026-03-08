@@ -33,3 +33,5 @@ Thumbs.db
 
 # Alembic
 alembic/versions/*.pyc
+
+.pdf/
